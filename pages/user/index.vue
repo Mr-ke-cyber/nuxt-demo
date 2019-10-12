@@ -1,5 +1,7 @@
 <template>
-    $END$
+    <div class="user">
+      this is a user page
+    </div>
 </template>
 
 <script>
@@ -9,5 +11,8 @@
 </script>
 
 <style scoped>
-
+    .user{
+      font-size:38px;
+      color:red;
+    }
 </style>
