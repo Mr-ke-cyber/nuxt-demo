@@ -9,14 +9,18 @@
         <div class="status">Progress：</div>
         <Input :class="item.isEdit?'':'no-edit'" v-model="item.status" :rows="1" maxlength="2"
                :show-word-limit="false" style="width: 35px;margin-top:10px;"/>
-        <Progress :percent="item.status" status="active" />
+        <Progress :percent="item.status" status="active"/>
         <Button type="primary" @click="update(i)" size="small">Update</Button>
         <Button type="primary" @click="save(i)" size="small">Save</Button>
       </li>
     </ul>
     <div class="btn-wrapper">
-      <Button type="primary" shape="circle" icon="ios-add-circle-outline" class="add-more-btn" @click="addMore">Add more</Button>
-      <a href="/currentlyTask" class="current-doing-btn">To plan <Icon type="ios-arrow-forward" /></a>
+      <Button type="primary" shape="circle" icon="ios-add-circle-outline" class="add-more-btn" @click="addMore">Add
+        more
+      </Button>
+      <a href="/currentlyTask" class="current-doing-btn">To plan
+        <Icon type="ios-arrow-forward"/>
+      </a>
     </div>
   </div>
 </template>
@@ -26,35 +30,35 @@
         name: "currentlyTask",
         data() {
             return {
-                newStatus:0,
+                newStatus: 0,
                 taskLists: [
                     {
                         remark: 'currently doing task1',
                         isEdit: false,
-                        status:30
+                        status: 30
                     }, {
                         remark: 'currently doing task2',
-                        status:45,
+                        status: 45,
                         isEdit: false
                     }
                 ]
             }
         },
-        methods:{
-            update(i){
-                this.taskLists[i].isEdit=true;
+        methods: {
+            update(i) {
+                this.taskLists[i].isEdit = true;
             },
-            save(i){
-                if(this.newStatus>0){
-                    this.taskLists[i].status=this.newStatus;
+            save(i) {
+                if (this.newStatus > 0) {
+                    this.taskLists[i].status = this.newStatus;
                 }
-                this.taskLists[i].isEdit=false;
+                this.taskLists[i].isEdit = false;
             },
-            addMore(){
+            addMore() {
                 let newTask = {
-                    remark:'',
-                    status:0,
-                    isEdit:true
+                    remark: '',
+                    status: 0,
+                    isEdit: true
                 };
                 this.taskLists.push(newTask);
             }
@@ -62,40 +66,42 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss" rel="stylesheet/scss">
   .current-task {
     min-height: 100vh;
     padding: 0 20px;
+
+    .title {
+      color: #C41230;
+      text-align: center;
+      font-size: 30px;
+    }
+    .sub-title {
+      color: #2d8cf0;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+    .task-list {
+      list-style: none;
+    }
   }
 
-  .title {
-    color: #C41230;
-    text-align: center;
-    font-size: 30px;
-  }
 
-  .sub-title {
-    color: #2d8cf0;
-    font-size: 18px;
-    margin-top: 10px;
-  }
-  .task-list {
-    list-style: none;
-  }
-
-  .btn-wrapper{
-    padding:20px 0;
+  .btn-wrapper {
+    padding: 20px 0;
     display: flex;
     justify-content: space-around;
   }
 
-  li{
-    padding-bottom:10px;
-    border-bottom:1px solid #00C58E;
+  li {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #00C58E;
   }
-  /deep/ .ivu-btn-small{
-    margin:15px 0 5px;
+
+  /deep/ .ivu-btn-small {
+    margin: 15px 0 5px;
   }
+
   /deep/ .no-edit .ivu-input {
     border: none;
   }
@@ -108,7 +114,7 @@
     margin-top: 10px;
   }
 
-  .current-doing-btn{
+  .current-doing-btn {
     color: #fff;
     background-color: #2d8cf0;
     display: inline-block;
@@ -130,6 +136,6 @@
     padding: 0 15px;
     font-size: 14px;
     border-radius: 32px;
-    transition: color .2s linear,background-color .2s linear,border .2s linear,box-shadow .2s linear;
+    transition: color .2s linear, background-color .2s linear, border .2s linear, box-shadow .2s linear;
   }
 </style>
